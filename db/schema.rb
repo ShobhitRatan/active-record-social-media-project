@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_163650) do
+ActiveRecord::Schema.define(version: 2020_03_31_163846) do
+
+  create_table "organization_members", force: :cascade do |t|
+    t.integer "organization_id"
+    t.integer "member_id"
+    t.boolean "is_admin?"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string "name"
