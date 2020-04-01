@@ -17,4 +17,13 @@ class Member < ActiveRecord::Base
     def self.highest_number_of_interests 
         self.maximum(:interest_id) 
     end 
+    # Method to get all the members that receive the lowest number of ads. 
+    def self.lowest_number_of_ads 
+        self.minimum(:ad_id) 
+    end 
+    # Method to get all the members that have the most number of interests and recieve the lowest number of ads. 
+    def self.premium_members 
+        self.where(self.highest_number_of_interests && self.lowest_number_of_ads) 
+    end 
+    
 end 
