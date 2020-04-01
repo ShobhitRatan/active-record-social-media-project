@@ -12,5 +12,14 @@ class Interest < ActiveRecord::Base
     def self.most_popular_interest_by_ad 
         self.where("ad_id = ?", self.most_ads).first 
     end 
-     
+    # Methods to find the interest corresponding with the most members. 
+    def member_count 
+        self.members.count 
+    end 
+    def self.most_members 
+        self.maximum(member_count) 
+    end 
+    def self.most_popular_interest 
+        self.where("member_id = ?", self.most_members).first 
+    end  
 end 
