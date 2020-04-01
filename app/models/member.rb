@@ -13,5 +13,8 @@ class Member < ActiveRecord::Base
     def self.hometown 
         self.where("hometown = ?") 
     end 
-    
+    # Method to get all the members that have the most number of interests. 
+    def self.highest_number_of_interests 
+        self.maximum(:interest_id) 
+    end 
 end 
