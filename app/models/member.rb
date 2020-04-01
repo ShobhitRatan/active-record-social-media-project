@@ -9,4 +9,9 @@ class Member < ActiveRecord::Base
     def self.highest_number_of_organizations 
         self.maximum(:organization_id) 
     end 
+    # Method to get all the members in a hometown queried by users. 
+    def self.hometown 
+        self.where("hometown = ?") 
+    end 
+    
 end 
