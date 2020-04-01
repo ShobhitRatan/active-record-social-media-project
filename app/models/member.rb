@@ -11,7 +11,7 @@ class Member < ActiveRecord::Base
     end 
     # Method to get all the members in a hometown queried by users. 
     def self.hometown 
-        self.where("hometown = ?") 
+        self.where("home_town = ?") 
     end 
     # Method to get all the members that have the most number of interests. 
     def self.highest_number_of_interests 
@@ -24,6 +24,10 @@ class Member < ActiveRecord::Base
     # Method to get all the members that have the most number of interests and recieve the lowest number of ads. 
     def self.premium_members 
         self.where(self.highest_number_of_interests && self.lowest_number_of_ads) 
+    end 
+    # Method to get all the members that continue to live in their hometown. 
+    def self.same_town_as_hometown 
+        self.where("city = self.hometown") 
     end 
     
 end 
