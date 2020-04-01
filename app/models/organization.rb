@@ -9,5 +9,5 @@ class Organization < ActiveRecord::Base
     def members_by_hometown 
         self.members.where("home_town = ?") 
     end 
-    
+    # Me
 end 
