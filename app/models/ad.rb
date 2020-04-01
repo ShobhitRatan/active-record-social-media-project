@@ -22,5 +22,4 @@ class Ad < ActiveRecord::Base
     def self.most_popular_interest 
         self.where("member_id = ?", self.most_members).first 
     end 
-
 end 
