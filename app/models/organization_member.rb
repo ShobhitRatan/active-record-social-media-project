@@ -13,5 +13,4 @@ class OrganizationMember < ActiveRecord::Base
     def get_organization_of_first_member 
         self.members.first.organization 
     end 
-    
 end 
