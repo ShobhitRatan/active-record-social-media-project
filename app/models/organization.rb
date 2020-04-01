@@ -9,8 +9,18 @@ class Organization < ActiveRecord::Base
     def members_by_hometown 
         self.members.where("home_town = ?") 
     end 
-    # Method to find the organization with the most members. 
-    def most_members 
-        self.maximum(:member_id) 
+    # Methods to find the organization with the most members. 
+    def self.most_members 
+        self.maximum(member_count) 
+    end 
+    def self.biggest_organization 
+        self.where("member_id = ?", self.most_members).first 
+    end 
+    # Methods to find the organization with the least members. 
+    def self.least_members 
+        self.minimum(member_count) 
+    end 
+    def self.smallest_organization 
+        self.where("member_id = ?", self.least_members).first 
     end 
 end 
