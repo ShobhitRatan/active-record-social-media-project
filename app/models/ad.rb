@@ -3,7 +3,7 @@ class Ad < ActiveRecord::Base
     has_many :members, through: :member_interest_ads 
     has_many :interests, through: :member_interest_ads 
     # Methods to find the ad corresponding with most interests. 
-    def ads_count 
+    def interest_count 
         self.interests.length 
     end 
     def self.most_interests 
