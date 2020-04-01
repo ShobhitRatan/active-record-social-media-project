@@ -29,5 +29,4 @@ class Member < ActiveRecord::Base
     def self.same_town_as_hometown 
         self.where("city = self.hometown") 
     end 
-    
 end 
